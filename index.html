@@ -1,11 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kristian og Emma Brullyp</title>
+    <title>Kristian & Emma — 3. april 2027</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Du er inviteret til bryllupsfest 3/4 2027!</h1>
+    <div class="overlay">
+        <div class="content">
+            <p class="label-top">Save the Date</p>
+            <h1 class="names">Kristian & Emma</h1>
+            <p class="wedding-date">3. april 2027</p>
+            <div class="countdown" id="countdown">
+                <div class="unit">
+                    <span class="number" id="days">--</span>
+                    <span class="unit-label">dage</span>
+                </div>
+                <div class="divider">:</div>
+                <div class="unit">
+                    <span class="number" id="hours">--</span>
+                    <span class="unit-label">timer</span>
+                </div>
+                <div class="divider">:</div>
+                <div class="unit">
+                    <span class="number" id="minutes">--</span>
+                    <span class="unit-label">min</span>
+                </div>
+                <div class="divider">:</div>
+                <div class="unit">
+                    <span class="number" id="seconds">--</span>
+                    <span class="unit-label">sek</span>
+                </div>
+            </div>
+            <p class="teaser">Mere info følger snart</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
