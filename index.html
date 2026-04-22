@@ -6,16 +6,21 @@
     <title>Kristian & Emma — 3. april 2027</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="overlay">
-        <div class="content">
-            <p class="label-top">Save the Date</p>
-            <h1 class="names">Kristian & Emma</h1>
-            <p class="wedding-date">3. april 2027</p>
-            <div class="countdown" id="countdown">
+    <div class="hero">
+        <img src="background.jpg" alt="Kristian og Emma" class="hero-img">
+        <div class="hero-fade"></div>
+    </div>
+
+    <main>
+        <section class="intro">
+            <p class="label-top animate" data-delay="0">Save the Date</p>
+            <h1 class="names animate" data-delay="120">Kristian & Emma</h1>
+            <p class="wedding-date animate" data-delay="220">3. april 2027</p>
+            <div class="countdown animate" data-delay="340" id="countdown">
                 <div class="unit">
                     <span class="number" id="days">--</span>
                     <span class="unit-label">dage</span>
@@ -36,9 +41,71 @@
                     <span class="unit-label">sek</span>
                 </div>
             </div>
-            <p class="teaser">Mere info følger snart</p>
+        </section>
+
+        <div class="ornament animate" data-delay="0" aria-hidden="true">
+            <span></span><span class="ornament-diamond">◆</span><span></span>
         </div>
-    </div>
+
+        <section class="calendar-section">
+            <h2 class="section-title animate" data-delay="0">April 2027</h2>
+            <div class="calendar animate" data-delay="100">
+                <div class="cal-row cal-header">
+                    <span>Man</span>
+                    <span>Tir</span>
+                    <span>Ons</span>
+                    <span>Tor</span>
+                    <span>Fre</span>
+                    <span>Lør</span>
+                    <span>Søn</span>
+                </div>
+                <div class="cal-row">
+                    <span></span><span></span><span></span>
+                    <span>1</span><span>2</span>
+                    <span class="wedding-day"><span class="heart-num">3</span></span>
+                    <span>4</span>
+                </div>
+                <div class="cal-row">
+                    <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
+                </div>
+                <div class="cal-row">
+                    <span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span>
+                </div>
+                <div class="cal-row">
+                    <span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
+                </div>
+                <div class="cal-row">
+                    <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span></span><span></span>
+                </div>
+            </div>
+        </section>
+
+        <div class="ornament animate" data-delay="0" aria-hidden="true">
+            <span></span><span class="ornament-diamond">◆</span><span></span>
+        </div>
+
+        <section class="map-section">
+            <h2 class="section-title animate" data-delay="0">Grundtvigs Kirken</h2>
+            <p class="map-address animate" data-delay="80">På Bjerget 14B · 2400 København NV</p>
+            <div class="church-icon animate" data-delay="160" aria-hidden="true">
+                <svg width="38" height="46" viewBox="0 0 38 46" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Cross -->
+                    <line x1="19" y1="1" x2="19" y2="10"/>
+                    <line x1="15" y1="4.5" x2="23" y2="4.5"/>
+                    <!-- Steeple -->
+                    <polyline points="14,10 14,15 2,21 36,21 24,15 24,10"/>
+                    <!-- Body -->
+                    <rect x="2" y="21" width="34" height="24"/>
+                    <!-- Arched door -->
+                    <path d="M15,45 L15,36 Q15,30 19,30 Q23,30 23,36 L23,45"/>
+                    <!-- Windows -->
+                    <rect x="5" y="25" width="7" height="9" rx="3.5"/>
+                    <rect x="26" y="25" width="7" height="9" rx="3.5"/>
+                </svg>
+            </div>
+        </section>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>

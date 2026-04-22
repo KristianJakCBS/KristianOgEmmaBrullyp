@@ -1,3 +1,5 @@
+/* ── Countdown ── */
+
 const WEDDING = new Date('2027-04-03T00:00:00');
 
 function pad(n) {
@@ -9,7 +11,7 @@ function updateCountdown() {
 
     if (diff <= 0) {
         document.getElementById('countdown').innerHTML =
-            '<p style="font-family:\'Playfair Display\',serif;font-style:italic;font-size:1.4rem">I dag er den store dag! ♡</p>';
+            '<p style="font-family:\'Playfair Display\',serif;font-style:italic;font-size:1.3rem;color:#1e0d04">I dag er den store dag ♡</p>';
         return;
     }
 
@@ -26,3 +28,17 @@ function updateCountdown() {
 
 updateCountdown();
 setInterval(updateCountdown, 1000);
+
+/* ── Scroll animations ── */
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const delay = parseInt(el.dataset.delay ?? '0', 10);
+        setTimeout(() => el.classList.add('visible'), delay);
+        observer.unobserve(el);
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.animate').forEach(el => observer.observe(el));
