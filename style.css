@@ -289,12 +289,13 @@ body {
 
 /* ── Site header ── */
 
-.site-header {
+.sticky-nav {
     position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
     z-index: 99;
+}
+
+.site-header {
     background-color: var(--bg);
     border-bottom: 1px solid var(--line);
     display: flex;
@@ -376,11 +377,6 @@ body {
 }
 
 .menu-bar {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 98;
     background-color: var(--bg);
     border-bottom: 1px solid var(--line);
     max-height: 0;
