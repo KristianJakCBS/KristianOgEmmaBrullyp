@@ -66,8 +66,10 @@ function updateCountdown() {
     document.getElementById('seconds').textContent = pad(seconds);
 }
 
-updateCountdown();
-setInterval(updateCountdown, 1000);
+if (document.getElementById('days')) {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
 
 /* ── Scroll animations ── */
 
