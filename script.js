@@ -1,4 +1,44 @@
+/* ── Menu toggle ── */
+
+const menuBtn = document.getElementById('menuBtn');
+const menuBar = document.getElementById('menuBar');
+
+function closeMenu() {
+    menuBtn.classList.remove('open');
+    menuBar.classList.remove('open');
+}
+
+function toggleMenu() {
+    menuBtn.classList.toggle('open');
+    menuBar.classList.toggle('open');
+}
+
+menuBtn.addEventListener('click', toggleMenu);
+
+// Close menu when a link is clicked
+document.querySelectorAll('.menu-bar .nav-list a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
+
+// Close menu when clicking outside (optional - remove if you want menu to stay open)
+document.addEventListener('click', (e) => {
+    if (!menuBtn.contains(e.target) && !menuBar.contains(e.target)) {
+        closeMenu();
+    }
+});
+
+// Mark active page in menu
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.menu-bar .nav-list a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
+});
+
 /* ── Countdown ── */
+
 
 const WEDDING = new Date('2027-04-03T00:00:00');
 
@@ -39,6 +79,17 @@ const observer = new IntersectionObserver((entries) => {
         setTimeout(() => el.classList.add('visible'), delay);
         observer.unobserve(el);
     });
-}, { threshold: 0.15 });
+}, { threshold: 0.1, rootMargin: '50px' });
 
-document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+// Observe all animate elements and immediately show those in viewport
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.animate').forEach(el => {
+        observer.observe(el);
+        // For elements already in viewport on load, show them immediately
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const delay = parseInt(el.dataset.delay ?? '0', 10);
+            setTimeout(() => el.classList.add('visible'), delay);
+        }
+    });
+});
