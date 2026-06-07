@@ -1,0 +1,704 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg:        #f0e6d4;
+    --brown:     #1e0d04;
+    --brown-mid: #6b3d1e;
+    --brown-dim: rgba(30, 13, 4, 0.45);
+    --line:      rgba(30, 13, 4, 0.12);
+}
+
+body {
+    background-color: var(--bg);
+    font-family: 'Lato', sans-serif;
+    color: var(--brown);
+}
+
+/* ── Scroll animation base ── */
+
+.animate {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── Hero ── */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 30vh;
+    height: 30svh;
+    padding-top: 2svh;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center top;
+    display: block;
+}
+
+.hero-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    pointer-events: none;
+}
+
+/* ── Intro ── */
+
+.intro {
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+}
+
+.label-top {
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
+    font-size: 3.8rem;
+    line-height: 1.1;
+    color: var(--brown);
+    margin-bottom: 0.5rem;
+}
+
+.names {
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.25rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    color: var(--brown);
+}
+
+.wedding-date {
+    font-family: 'Playfair Display', serif;
+    font-style: normal;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brown-dim);
+    margin-bottom: 2.25rem;
+}
+
+.countdown {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.2rem;
+}
+
+.unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 3rem;
+}
+
+.number {
+    font-size: 2.4rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--brown);
+}
+
+.unit-label {
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brown-dim);
+    margin-top: 0.3rem;
+}
+
+.divider {
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--line);
+    padding-top: 0.1rem;
+}
+
+/* ── Ornament divider ── */
+
+.ornament {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.25rem 3rem;
+    margin: 0.5rem 0;
+}
+
+.ornament span:not(.ornament-diamond) {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+}
+
+.ornament-diamond {
+    font-size: 0.4rem;
+    color: var(--brown-dim);
+    flex: none;
+}
+
+/* ── Section titles ── */
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--brown-dim);
+    text-align: center;
+    margin-bottom: 1.75rem;
+}
+
+/* ── Calendar ── */
+
+.calendar-section {
+    padding: 2.5rem 2rem 2rem;
+}
+
+.calendar {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.cal-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-bottom: 0.15rem;
+}
+
+.cal-header span {
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brown-dim);
+    text-align: center;
+    padding-bottom: 0.7rem;
+}
+
+.cal-row span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2rem;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--brown);
+    opacity: 0.55;
+}
+
+.wedding-day {
+    opacity: 1 !important;
+}
+
+.heart-num {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: var(--brown);
+    z-index: 1;
+}
+
+.heart-num::before {
+    content: '♡';
+    position: absolute;
+    font-size: 2.5rem;
+    color: #8b3333;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    line-height: 1;
+}
+
+/* ── Map ── */
+
+.map-section {
+    padding: 2.5rem 2rem 3.5rem;
+}
+
+.church-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+    color: var(--brown-dim);
+}
+
+.map-address {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--brown-dim);
+    letter-spacing: 0.06em;
+    margin-bottom: 1.5rem;
+}
+
+.map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    height: 280px;
+    box-shadow: 0 4px 24px rgba(30, 13, 4, 0.12);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* ── Footer ── */
+
+.footer {
+    text-align: center;
+    padding: 2rem 2rem 3.5rem;
+    border-top: 1px solid var(--line);
+}
+
+.footer p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--brown-dim);
+    letter-spacing: 0.04em;
+}
+
+/* ── Site header ── */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.5rem;
+}
+
+.site-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--brown);
+    margin: 0;
+    line-height: 1;
+}
+
+/* ── Menu button ── */
+
+.menu-btn {
+    position: relative;
+    top: auto;
+    right: auto;
+    z-index: 999;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.menu-btn span {
+    width: 1.75rem;
+    height: 1.5px;
+    background-color: var(--brown);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.menu-btn.open span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+}
+
+.menu-btn.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ── Dropdown menu bar ── */
+
+.menu-overlay {
+    display: none;
+}
+
+.menu-overlay.visible {
+    display: none;
+}
+
+.sidebar {
+    display: none;
+}
+
+.sidebar.open {
+    display: none;
+}
+
+.sidebar-content {
+    display: none;
+}
+
+.menu-bar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 98;
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.menu-bar.open {
+    max-height: 100vh;
+}
+
+.menu-bar .nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+    margin: 0;
+}
+
+.menu-bar .nav-list li {
+    margin-bottom: 0;
+}
+
+.menu-bar .nav-list a {
+    display: block;
+    padding: 0.9rem 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brown);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    transition: color 0.2s ease;
+}
+
+.menu-bar .nav-list a:last-child {
+    border-bottom: none;
+}
+
+.menu-bar .nav-list a:hover {
+    color: var(--brown-mid);
+}
+
+.menu-bar .nav-list a.active {
+    color: var(--brown-mid);
+    font-weight: 500;
+}
+
+/* ── Practical guide ── */
+
+.practical-guide {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.practical-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    /* border-bottom: 1px solid var(--line); */
+}
+
+.practical-section:last-child {
+    border-bottom: none;
+}
+
+.practical-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin: 0 0 1.25rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(107, 61, 30, 0.2);
+}
+
+.practical-section p {
+    color: var(--brown);
+    line-height: 1.7;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.practical-section p:last-child {
+    margin-bottom: 0;
+}
+
+.practical-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1rem 0;
+}
+
+.practical-list li {
+    color: var(--brown);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+
+.practical-list li::before {
+    content: "–";
+    position: absolute;
+    left: -1rem;
+    color: var(--brown-mid);
+    font-weight: 500;
+}
+
+/* ── Contact cards ── */
+
+.contact-section {
+    margin-bottom: 3rem;
+}
+
+.contact-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brown-dim);
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.contact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background-color: rgba(107, 61, 30, 0.06);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    box-shadow: 0 4px 16px rgba(30, 13, 4, 0.1);
+}
+
+.contact-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--brown);
+    margin: 0 0 0.5rem 0;
+}
+
+.contact-role {
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown-dim);
+    margin: 0 0 1.5rem 0;
+}
+
+.contact-info {
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+}
+
+.contact-phone {
+    display: inline-block;
+    font-size: 1.1rem;
+    color: var(--brown-mid);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: color 0.2s ease;
+}
+
+.contact-phone:hover {
+    color: var(--brown);
+}
+
+/* ── S.U. Box ── */
+
+.su-box {
+    background-color: rgba(107, 61, 30, 0.08);
+    border: 1px solid var(--brown-dim);
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    max-width: 400px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.su-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown-dim);
+    margin: 0 0 1rem 0;
+}
+
+.su-date {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--brown);
+    margin: 0.5rem 0 2rem 0;
+    line-height: 1.2;
+}
+
+.su-help {
+    font-size: 0.85rem;
+    color: var(--brown-dim);
+    margin: 0;
+    font-style: italic;
+}
+
+/* ── Program timeline ── */
+
+.program-timeline {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.program-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+}
+
+.program-time {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--brown-mid);
+    min-width: 3rem;
+    flex-shrink: 0;
+}
+
+.program-activity {
+    font-size: 1rem;
+    color: var(--brown);
+    line-height: 1.5;
+}
+
+.program-note {
+    font-size: 0.8rem;
+    color: var(--brown-dim);
+    font-style: italic;
+    opacity: 0.6;
+    text-align: center;
+    margin: 0.5rem 0 2rem;
+}
+
+.program-subtext {
+    margin: -1rem 0 1.5rem 3rem;
+    font-size: 0.9rem;
+    color: var(--brown-dim);
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.program-subtext p {
+    margin: 0;
+}
+
+/* ── Page content layout ── */
+
+.page-content {
+    padding-top: 1rem;
+}
+
+.page-header {
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--brown);
+}
+
+.content-section {
+    padding: 2rem 2rem 2rem;
+}
+
+/* ── Larger screens ── */
+
+@media (min-width: 480px) {
+    .hero {
+        height: 35vh;
+        height: 35svh;
+    }
+
+    .label-top {
+        font-size: 5rem;
+    }
+
+    .names {
+        font-size: 1.4rem;
+    }
+
+    .number {
+        font-size: 3rem;
+    }
+
+    .unit {
+        min-width: 3.5rem;
+    }
+}
